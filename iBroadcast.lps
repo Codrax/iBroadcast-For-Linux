@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="iBroadcast.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="26"/>
+        <CursorPos X="18" Y="54"/>
+        <UsageCount Value="61"/>
+      </Unit>
+      <Unit>
+        <Filename Value="mainui.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Main"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MainUI"/>
+        <TopLine Value="3237"/>
+        <CursorPos X="30" Y="3239"/>
+        <UsageCount Value="61"/>
+        <Bookmarks Count="3">
+          <Item0 X="13" Y="4548" ID="3"/>
+          <Item1 X="24" Y="1631" ID="2"/>
+          <Item2 X="8" Y="3738" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/createplaylistform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CreatePlaylist"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="22"/>
+        <CursorPos X="8" Y="42"/>
+        <UsageCount Value="45"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/popupplayform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PopupPlay"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PopupPlayForm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="74"/>
+        <CursorPos X="25" Y="87"/>
+        <UsageCount Value="42"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/shutdownform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="shutdown"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="11" Y="29"/>
+        <UsageCount Value="30"/>
+      </Unit>
+      <Unit>
+        <Filename Value="SpectrumVis3D.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="2" Y="14"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/loginform.pas"/>
+        <ComponentName Value="Login"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="72"/>
+        <CursorPos X="54" Y="82"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/helpform.pas"/>
+        <ComponentName Value="Help"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="113"/>
+        <CursorPos X="11" Y="131"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Audio.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="74"/>
+        <CursorPos X="18" Y="88"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="libdefine.pas"/>
+        <UnitName Value="LibDefine"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="9" Y="13"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Delphi-BASS-main/BassVersions/BASS/Core/BassLibs.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="30" Y="7"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Delphi-BASS-main/BassVersions/BASS/Core/Bass.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1040"/>
+        <CursorPos X="48" Y="1065"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="BroadcastAPI.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2134"/>
+        <CursorPos X="19" Y="2139"/>
+        <UsageCount Value="22"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/loadinglibrary.pas"/>
+        <ComponentName Value="LoadLib"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="LoadingLibrary"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5"/>
+        <CursorPos X="46" Y="13"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <ComponentName Value="ItemInfo"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="214"/>
+        <CursorPos X="61" Y="222"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/sysutils/syshelph.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="5"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="262"/>
+        <CursorPos X="22" Y="277"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/about.pas"/>
+        <ComponentName Value="AboutDialog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="About"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="80"/>
+        <CursorPos X="56" Y="93"/>
+        <UsageCount Value="21"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2320"/>
+        <CursorPos X="14" Y="2336"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/math.pp"/>
+        <UnitName Value="Math"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="125"/>
+        <CursorPos X="21" Y="144"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/inc/objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="198"/>
+        <CursorPos X="22" Y="208"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/inc/objpas.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1021"/>
+        <CursorPos X="11" Y="1029"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Types.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="117"/>
+        <CursorPos X="5" Y="126"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.StringUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="34"/>
+        <CursorPos X="25" Y="58"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="797"/>
+        <CursorPos X="3" Y="813"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/lists.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="738"/>
+        <CursorPos X="3" Y="743"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/iteminformation.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="122"/>
+        <CursorPos X="4" Y="152"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/ratingform.pas"/>
+        <ComponentName Value="rating"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17" Y="9"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Indy Internet Direct 10/Lib/Core/IdTCPConnection.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="437"/>
+        <CursorPos X="14" Y="451"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Indy Internet Direct 10/Lib/System/IdComponent.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="89"/>
+        <CursorPos X="3" Y="98"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/taskexecution.pas"/>
+        <ComponentName Value="TaskExec"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="55" Y="5"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/comctrls.pp"/>
+        <UnitName Value="ComCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1762"/>
+        <CursorPos X="34" Y="1777"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/taskexecution.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/helpform.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/about.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons/bass_fx.pas"/>
+        <UnitName Value="BASS_FX"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="31"/>
+        <CursorPos X="19" Y="43"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Files.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="43"/>
+        <CursorPos X="30" Y="55"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/createplaylistform.lfm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="30" Y="7"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Forms/loadinglibrary.lfm"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="31" Y="3"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/components/lazutils/uitypes.pas"/>
+        <UnitName Value="UITypes"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="30"/>
+        <CursorPos X="3" Y="45"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/packages/rtl-objpas/src/inc/system.uitypes.pp"/>
+        <UnitName Value="System.UITypes"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="194"/>
+        <CursorPos X="3" Y="209"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3157"/>
+        <CursorPos X="3" Y="3157"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Internet.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="92"/>
+        <CursorPos X="21" Y="107"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/sysutils/sysinth.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="39"/>
+        <CursorPos X="24" Y="57"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4492"/>
+        <CursorPos X="3" Y="4499"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/classes.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="649"/>
+        <CursorPos X="3" Y="651"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/sysutils/finah.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3"/>
+        <CursorPos X="10" Y="33"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/components/lazutils/fileutil.pas"/>
+        <UnitName Value="FileUtil"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="58"/>
+        <CursorPos X="10" Y="58"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/types.pp"/>
+        <UnitName Value="Types"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="152"/>
+        <CursorPos X="3" Y="167"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/sysutils/filutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="190"/>
+        <CursorPos X="17" Y="205"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/customtimer.pas"/>
+        <UnitName Value="CustomTimer"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="164"/>
+        <CursorPos Y="180"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/popupnotifier.pas"/>
+        <UnitName Value="PopupNotifier"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/unix/sysutils.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1084"/>
+        <CursorPos Y="1094"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/unix/tthread.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="249"/>
+        <CursorPos X="3" Y="255"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Indy Internet Direct 10/Lib/System/IdStackUnix.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="417"/>
+        <CursorPos Y="432"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/lclintf.pas"/>
+        <UnitName Value="LCLIntf"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="10" Y="82"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="113" Column="49" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="112" Column="49" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="111" Column="49" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="110" Column="49" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="109" Column="49" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="108" Column="49" TopLine="93"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="107" Column="49" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="106" Column="49" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="121" Column="49" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="120" Column="49" TopLine="105"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="119" Column="49" TopLine="104"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="118" Column="49" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="117" Column="49" TopLine="102"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="116" Column="49" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="115" Column="49" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="114" Column="49" TopLine="99"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="113" Column="49" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="112" Column="49" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="111" Column="49" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="110" Column="49" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="109" Column="49" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="108" Column="49" TopLine="93"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="107" Column="49" TopLine="92"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="106" Column="49" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="121" Column="49" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3636" Column="30" TopLine="3613"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3241" TopLine="3241"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3247" Column="3" TopLine="3244"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="129" Column="11" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/helpform.pas"/>
+        <Caret Line="130" Column="11" TopLine="112"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default">
+        <Mode Name="default">
+          <local>
+            <CommandLineParams Value="--offline"/>
+          </local>
+        </Mode>
+      </Modes>
+    </RunParams>
+    <HistoryLists>
+      <List Name="LaunchingApplication" Type="File" Count="1">
+        <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+      </List>
+      <List Name="CommandLineParameters" Count="3">
+        <Item1 Value="--offline"/>
+        <Item2 Value="--help"/>
+        <Item3 Value="--debug"/>
+      </List>
+    </HistoryLists>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="BroadcastAPI.pas"/>
+        <Line Value="1126"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>
