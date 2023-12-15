@@ -1414,11 +1414,11 @@ object Main: TMain
             Top = 0
             Width = 816
             HorzScrollBar.Page = 368
-            VertScrollBar.Page = 630
+            VertScrollBar.Page = 640
             Align = alClient
             BorderStyle = bsNone
             ClientHeight = 640
-            ClientWidth = 816
+            ClientWidth = 805
             TabOrder = 0
             object Label4: TLabel
               Left = 0
@@ -1479,6 +1479,8 @@ object Main: TMain
               Top = 328
               Width = 190
               Caption = 'Stream songs directly'
+              Checked = True
+              State = cbChecked
               TabOrder = 2
             end
             object Button4: TButton
@@ -1556,7 +1558,7 @@ object Main: TMain
             object Option_playervisualisation: TCheckBox
               Left = 0
               Height = 24
-              Top = 503
+              Top = 504
               Width = 213
               Caption = 'Mini player visualisations'
               Checked = True
@@ -1566,7 +1568,7 @@ object Main: TMain
             object Option_playerstaytop: TCheckBox
               Left = 0
               Height = 24
-              Top = 535
+              Top = 536
               Width = 247
               Caption = 'Stay on top of other windows'
               Checked = True
@@ -1576,7 +1578,7 @@ object Main: TMain
             object Artwork_Storage1: TLabel
               Left = 0
               Height = 20
-              Top = 575
+              Top = 576
               Width = 150
               Caption = 'Player transparency'
               ParentColor = False
@@ -1585,7 +1587,7 @@ object Main: TMain
               Left = 0
               Height = 31
               Hint = '0'
-              Top = 599
+              Top = 600
               Width = 257
               Max = 255
               Min = 25
@@ -1602,6 +1604,55 @@ object Main: TMain
               Checked = True
               State = cbChecked
               TabOrder = 9
+            end
+            object Label50: TLabel
+              Left = 0
+              Height = 20
+              Top = 649
+              Width = 88
+              Caption = 'Application'
+              Font.Height = -16
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
+            end
+            object Option_checkupdates: TCheckBox
+              Left = 0
+              Height = 24
+              Top = 681
+              Width = 250
+              Caption = 'Check for updates once a day'
+              Checked = True
+              State = cbChecked
+              TabOrder = 10
+            end
+            object Button_CheckUpdate: TButton
+              Left = 0
+              Height = 40
+              Top = 712
+              Width = 170
+              Caption = 'Check now'
+              OnClick = Button_CheckUpdateClick
+              TabOrder = 11
+            end
+            object Label_UpdateStat: TLabel
+              Left = 132
+              Height = 20
+              Top = 760
+              Width = 70
+              Caption = 'Unknown'
+              ParentColor = False
+            end
+            object Label51: TLabel
+              Left = 7
+              Height = 20
+              Top = 760
+              Width = 121
+              Caption = 'Server version:'
+              Font.Height = -16
+              Font.Style = [fsBold]
+              ParentColor = False
+              ParentFont = False
             end
           end
         end

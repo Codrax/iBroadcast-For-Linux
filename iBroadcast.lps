@@ -2,15 +2,15 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="12"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Active="Release"/>
     <Units>
       <Unit>
         <Filename Value="iBroadcast.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="26"/>
+        <TopLine Value="24"/>
         <CursorPos X="18" Y="54"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="64"/>
       </Unit>
       <Unit>
         <Filename Value="mainui.pas"/>
@@ -19,13 +19,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainUI"/>
-        <TopLine Value="3237"/>
-        <CursorPos X="30" Y="3239"/>
-        <UsageCount Value="61"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="3171"/>
+        <CursorPos X="45" Y="3180"/>
+        <UsageCount Value="64"/>
         <Bookmarks Count="3">
-          <Item0 X="13" Y="4548" ID="3"/>
-          <Item1 X="24" Y="1631" ID="2"/>
-          <Item2 X="8" Y="3738" ID="1"/>
+          <Item0 Y="1519" ID="1"/>
+          <Item1 X="10" Y="1442" ID="2"/>
+          <Item2 X="9" Y="2160" ID="3"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -39,7 +40,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="8" Y="42"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="48"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/popupplayform.pas"/>
@@ -51,7 +52,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="74"/>
         <CursorPos X="25" Y="87"/>
-        <UsageCount Value="42"/>
+        <UsageCount Value="45"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/shutdownform.pas"/>
@@ -61,7 +62,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="11" Y="29"/>
-        <UsageCount Value="30"/>
+        <UsageCount Value="33"/>
       </Unit>
       <Unit>
         <Filename Value="SpectrumVis3D.pas"/>
@@ -74,23 +75,21 @@
         <ComponentName Value="Login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="72"/>
-        <CursorPos X="54" Y="82"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="19"/>
+        <CursorPos X="49" Y="34"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/helpform.pas"/>
         <ComponentName Value="Help"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="113"/>
-        <CursorPos X="11" Y="131"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="97"/>
+        <CursorPos X="41" Y="105"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.Audio.pas"/>
@@ -103,8 +102,9 @@
         <Filename Value="libdefine.pas"/>
         <UnitName Value="LibDefine"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="9" Y="13"/>
-        <UsageCount Value="7"/>
+        <TopLine Value="4"/>
+        <CursorPos X="45" Y="21"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Delphi-BASS-main/BassVersions/BASS/Core/BassLibs.pas"/>
@@ -121,10 +121,11 @@
       </Unit>
       <Unit>
         <Filename Value="BroadcastAPI.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2134"/>
-        <CursorPos X="19" Y="2139"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="372"/>
+        <CursorPos X="62" Y="387"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/loadinglibrary.pas"/>
@@ -167,10 +168,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="About"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="80"/>
-        <CursorPos X="56" Y="93"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="13" Y="9"/>
         <UsageCount Value="21"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/controls.pp"/>
@@ -204,10 +205,11 @@
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.Types.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="117"/>
-        <CursorPos X="5" Y="126"/>
-        <UsageCount Value="9"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="842"/>
+        <CursorPos X="49" Y="844"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.StringUtils.pas"/>
@@ -452,127 +454,158 @@
         <CursorPos X="10" Y="82"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/include/lclintf.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="339"/>
+        <CursorPos Y="355"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.VersionUpdate.pas"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="33" Y="7"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="71"/>
+        <CursorPos Y="81"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/graphics.pp"/>
+        <UnitName Value="Graphics"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="1401"/>
+        <CursorPos X="20" Y="1417"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="113" Column="49" TopLine="98"/>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/graphics.pp"/>
+        <Caret Line="1417" Column="20" TopLine="1401"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="112" Column="49" TopLine="97"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="1116" Column="49" TopLine="1103"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="111" Column="49" TopLine="96"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="84" Column="33" TopLine="69"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="110" Column="49" TopLine="95"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="830" Column="19" TopLine="815"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="109" Column="49" TopLine="94"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="57" Column="80" TopLine="42"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="108" Column="49" TopLine="93"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="297" Column="4" TopLine="283"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="107" Column="49" TopLine="92"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="829" Column="15" TopLine="814"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="106" Column="49" TopLine="91"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="297" Column="4" TopLine="282"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="121" Column="49" TopLine="106"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="325" Column="57" TopLine="305"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="120" Column="49" TopLine="105"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="57" Column="80" TopLine="42"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="119" Column="49" TopLine="104"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="84" Column="72" TopLine="69"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="118" Column="49" TopLine="103"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="1031" Column="5" TopLine="1027"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="117" Column="49" TopLine="102"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="83" Column="99" TopLine="69"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="116" Column="49" TopLine="101"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="1029" Column="3" TopLine="1027"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="115" Column="49" TopLine="100"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="83" Column="13" TopLine="67"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="114" Column="49" TopLine="99"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="113" Column="49" TopLine="98"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="112" Column="49" TopLine="97"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="111" Column="49" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="110" Column="49" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="109" Column="49" TopLine="94"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="108" Column="49" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="107" Column="49" TopLine="92"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="106" Column="49" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="121" Column="49" TopLine="106"/>
+        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
+        <Caret Line="1026" TopLine="1018"/>
       </Position>
       <Position>
         <Filename Value="mainui.pas"/>
-        <Caret Line="3636" Column="30" TopLine="3613"/>
+        <Caret Line="865" Column="34" TopLine="850"/>
       </Position>
       <Position>
         <Filename Value="mainui.pas"/>
-        <Caret Line="3241" TopLine="3241"/>
+        <Caret Line="94" Column="26" TopLine="79"/>
       </Position>
       <Position>
         <Filename Value="mainui.pas"/>
-        <Caret Line="3247" Column="3" TopLine="3244"/>
+        <Caret Line="1420" Column="22" TopLine="1406"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="129" Column="11" TopLine="111"/>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="1411" Column="3" TopLine="1396"/>
       </Position>
       <Position>
-        <Filename Value="Forms/helpform.pas"/>
-        <Caret Line="130" Column="11" TopLine="112"/>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="352" Column="15" TopLine="338"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="1451" Column="3" TopLine="1436"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="1402" Column="14" TopLine="1397"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="1519" TopLine="1490"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="22" Column="16" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3144" Column="72" TopLine="3132"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3645" Column="21" TopLine="3635"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3187" TopLine="3171"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3190" TopLine="3171"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3191" TopLine="3171"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -580,20 +613,21 @@
       <Modes ActiveMode="default">
         <Mode Name="default">
           <local>
-            <CommandLineParams Value="--offline"/>
+            <CommandLineParams Value="--debug"/>
           </local>
         </Mode>
       </Modes>
     </RunParams>
     <HistoryLists>
-      <List Name="LaunchingApplication" Type="File" Count="1">
-        <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+      <List Name="LaunchingApplication" Type="File" Count="2">
+        <Item2 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
-      <List Name="CommandLineParameters" Count="3">
-        <Item1 Value="--offline"/>
-        <Item2 Value="--help"/>
-        <Item3 Value="--debug"/>
+      <List Name="CommandLineParameters" Count="4">
+        <Item1 Value="--debug"/>
+        <Item3 Value="--offline"/>
+        <Item4 Value="--help"/>
       </List>
+      <List Name="WorkingDirectory" Type="File" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>

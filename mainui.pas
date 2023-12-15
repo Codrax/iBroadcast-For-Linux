@@ -8,13 +8,18 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
   Buttons, ComCtrls, Menus, cthreads, inifiles, LCLIntf, LCLType, Clipbrd,
+  DateUtils,
 
   // Networking
   IdSSLOpenSSL, IdHTTP, IdComponent,
 
+  // System
+  LibDefine,
+
   // Cod
   Cod.ArrayHelpers, Cod.Math,  Cod.Files, Cod.Types, Cod.Graphics,
-  Cod.ColorUtils, Cod.StringUtils, Cod.Internet,
+  Cod.ColorUtils, Cod.StringUtils, Cod.Internet, Cod.VersionUpdate,
+  Cod.SysUtils,
 
   // Audio
   Bass, Cod.Audio,
@@ -116,8 +121,6 @@ type
     constructor Create; override;
   end;
 
-  { TDialoggedDownloadSongThread }
-
   { TCloudDownloadSongThread }
   TCloudDownloadSongThread = class(TDownloadSongThread)
     LastProgress: integer;
@@ -169,6 +172,15 @@ type
   TDialogTashEmptyTrash = class(TDialogedTaskThread)
     procedure DoPrepare; override;
     procedure DoWork; override;
+  end;
+
+  { TDialogCheckUpdatesThread }
+  TDialogCheckUpdatesThread = class(TDialogedTaskThread)
+    ServerVersion: TVersionRec;
+
+    procedure DoPrepare; override;
+    procedure DoWork; override;
+    procedure DoFinish; override;
   end;
 
   { TDialogTrashItem }
@@ -360,7 +372,6 @@ type
   private
     const
       CAT_DOWNLOAD = 'Downloads';
-      CAT_SETTING = 'Settings';
       SEPAR = ',';
 
   public
@@ -389,7 +400,7 @@ type
 
     (* Saving *)
     function GetConfigFile: TIniFile;
-    procedure LoadConfig; { Validation will be done here (check for invalid items) }
+    procedure LoadConfig;
     procedure SaveConfig;
 
     procedure ValidateDownloads; { Remove invalid enteries from INDEX }
@@ -416,6 +427,7 @@ type
     BitBtn6: TBitBtn;
     BitBtn7: TBitBtn;
     Button1: TButton;
+    Button_CheckUpdate: TButton;
     Button4: TButton;
     Button5: TButton;
     Button6: TButton;
@@ -439,6 +451,10 @@ type
     Download_StoreUse: TLabel;
     Label18: TLabel;
     Label19: TLabel;
+    Label_UpdateStat: TLabel;
+    Label50: TLabel;
+    Label51: TLabel;
+    Option_checkupdates: TCheckBox;
     Stat_Viewer: TLabel;
     Label20: TLabel;
     Label21: TLabel;
@@ -621,6 +637,7 @@ type
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
+    procedure Button_CheckUpdateClick(Sender: TObject);
     procedure Label21Click(Sender: TObject);
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem13Click(Sender: TObject);
@@ -896,6 +913,8 @@ var
   TempFolder: string;
   DownloadsFolder: string;
 
+  LastUpdateCheck: TDateTime = 0;
+
   // Threading
   SimultanousTaskThreads: integer = 0;
 
@@ -1039,6 +1058,59 @@ begin
   Main.OpenLoginPage;
 end;
 
+{ TDialogCheckUpdatesThread }
+
+procedure TDialogCheckUpdatesThread.DoPrepare;
+begin
+  TaskExec.Title.Caption:='Checking for updates...';
+
+  // UI
+  Main.Button_CheckUpdate.Enabled := false;
+  Main.Label_UpdateStat.Caption := 'Checking...';
+end;
+
+procedure TDialogCheckUpdatesThread.DoWork;
+begin
+  try
+    ServerVersion.APILoad('ibroadcast-linux');
+
+    Succeeded := true;
+  except
+    Succeeded := false;
+  end;
+
+  // Reduce API strain
+  Sleep(3000);
+end;
+
+procedure TDialogCheckUpdatesThread.DoFinish;
+var
+  Newer: boolean;
+begin
+  if Succeeded then
+    begin
+      Main.Label_UpdateStat.Caption := ServerVersion.ToString();
+      Newer := ServerVersion.NewerThan(APP_VERSION);
+
+      // Status
+      LastUpdateCheck := Now;
+
+      // Update dialog
+      if Newer and (MessageDlg('New version released', 'There is a new version of iBroadcast avalabile to download. Version ' + ServerVersion.ToString()
+      + #13'Would you like to download It now?',
+        mtInformation, [mbYes, mbNo], 0) = mrYes) then
+          OpenURL('https://www.codrutsoft.com/apps/ibroadcast/');
+    end
+      else
+        Main.Label_UpdateStat.Caption:='Failed to check for updates';
+
+  // Ui
+  Main.Button_CheckUpdate.Enabled:=true;
+
+  // Inherit
+  inherited;
+end;
+
 { TDialogLibraryLoadThread }
 
 procedure TDialogLibraryLoadThread.LoadLibraryComponent(Source: TDataSource);
@@ -1080,6 +1152,7 @@ var
   Items: TStringArray;
   I: integer;
 begin
+  Result := [];
   Items := AStr.Split([',']);
   for I := 0 to High(Items) do
     if Items[I] <> '' then
@@ -1336,7 +1409,6 @@ end;
 procedure TDownloaderClass.ValidateFiles(DownKind: TDataSource);
 var
   ExpectedFileCount: integer;
-  CompleteFileSet: boolean;
 
   I, J: integer;
 
@@ -1346,7 +1418,6 @@ var
 
   Directory: string;
   Files: TStringList;
-  Values: TStringList;
   DeleteFiles: TStringList;
 
   Current: string;
@@ -1369,14 +1440,12 @@ var
   I: integer;
 begin
   case DownKind of
-    TDataSource.Tracks: I := DownloadManager.MasterList.IndexOf(ID);
-    TDataSource.Albums: I := DownloadManager.Albums.IndexOf(ID);
-    TDataSource.Artists: I := DownloadManager.Artists.IndexOf(ID);
-    TDataSource.Playlists: I := DownloadManager.Playlists.IndexOf(ID);
-    else I := -1;
+    TDataSource.Tracks: Result := DownloadManager.MasterList.Find(ID, I);
+    TDataSource.Albums: Result := DownloadManager.Albums.Find(ID, I);
+    TDataSource.Artists: Result := DownloadManager.Artists.Find(ID, I);
+    TDataSource.Playlists: Result := DownloadManager.Playlists.Find(ID, I);
+    else Result := false;
   end;
-
-  Result := I <> -1;
 end;
 begin
   Directory := GetDir(DownKind);
@@ -1446,6 +1515,9 @@ begin
         CurrentValid := LastValid
       else
         try
+          if Current = '255182618' then
+            Current := Current;
+
           CurrentValid := FindDownloadID(strtoint(Current));
         except
           CurrentValid := false;
@@ -3108,6 +3180,9 @@ begin
   if Option_savequeue.Checked then
     SaveQueueToFile;
 
+  // Form position
+  FormPositionSettings(Main, AppData + 'form.ini', false);
+
   // Threads
   StopThreads;
 
@@ -3215,6 +3290,16 @@ end;
 procedure TMain.Button6Click(Sender: TObject);
 begin
   OpenURL( 'https://www.ibroadcast.com/premium/' );
+end;
+
+procedure TMain.Button_CheckUpdateClick(Sender: TObject);
+begin
+  with TDialogCheckUpdatesThread.Create do
+    begin
+      Start;
+
+      TaskExec.ShowModal;
+    end;
 end;
 
 procedure TMain.Label21Click(Sender: TObject);
@@ -3561,6 +3646,9 @@ begin
   // Scale
   DoScaling;
 
+  // Form position
+  FormPositionSettings(Main, AppData + 'form.ini', true);
+
   // Create lists
   Queue := TIntegerList.Create;
   QueueDefault := TIntegerList.Create;
@@ -3588,7 +3676,7 @@ begin
 
   // Art
   DefaultPicture := TJPEGImage.Create;
-  DefaultPicture.LoadFromFile('./runtime/art.jpeg');
+  DefaultPicture.LoadFromFile(RuntimeFolder + 'art.jpeg');
 
   // Create Spectrum
   Spectrum_Player := TSpectrum.Create(round(Visualisation_Player.Width * ScaleFactor), round(Visualisation_Player.Height * ScaleFactor));
@@ -3753,6 +3841,10 @@ begin
   // Load queue
   if Option_savequeue.Checked then
     LoadQueueFromFile;
+
+  // Update
+  if Option_checkupdates.Checked and (DaysBetween(LastUpdateCheck, Now) > 0) then
+    TDialogCheckUpdatesThread.Create.Start;
 
   // DONE
   LoginScriptDone := true;
@@ -6324,7 +6416,6 @@ begin
     end;
 
   Music_Time.Caption:='0:00/0:00';
-  Music_Position.Max:=round(Player.DurationSeconds*10);
 
   // Popup
   UpdatePopupPlayMusic;
@@ -6437,6 +6528,7 @@ end;
 
 procedure TMain.AppSettings(Load: boolean);
 const
+  SECT_APP = 'Application';
   SECT_GENERAL = 'General';
   SECT_VIEWMODE = 'View modes';
   SECT_ARTWORK = 'Artwork';
@@ -6457,6 +6549,10 @@ begin
       if Load then
         // LOAD
         begin
+          Option_checkupdates.Checked := ReadBool(SECT_APP, 'Updates checking', Option_checkupdates.Checked);
+          LastUpdateCheck := ReadDateTime(SECT_APP, 'Last update check', LastUpdateCheck);
+          if LastUpdateCheck > Now then
+            LastUpdateCheck := Now;
           Visualisation_Player.Visible := ReadBool(SECT_GENERAL, 'Visualisations', Visualisation_Player.Visible);
             Equaliser_Indic.Visible:=Visualisation_Player.Visible;
           ValueRatingMode := ReadBool(SECT_GENERAL, 'Value rating', ValueRatingMode);
@@ -6468,7 +6564,9 @@ begin
           Option_streaming.Checked := ReadBool(SECT_PLAY, 'Audio streaming', Option_streaming.Checked);
           RepeatMode := TRepeat(ReadInteger(SECT_PLAY, 'Repeat', integer(RepeatMode)));
           PlayerSpeed := ReadFloat(SECT_PLAY, 'Audio speed', PlayerSpeed);
+            Music_Speed.Position:=round(PlayerSpeed*100);
           PlayerVolume := ReadFloat(SECT_PLAY, 'Audio volume', PlayerVolume);
+            Music_Volume.Position:=round(PlayerVolume*100);
           MAX_THREAD_COUNT := ReadInteger(SECT_THREAD, 'Max threads', MAX_THREAD_COUNT);
           Option_playervisualisation.Checked := ReadBool(SECT_POPUP, 'Visualisations', Option_playervisualisation.Checked);
           Option_playerstaytop.Checked := ReadBool(SECT_POPUP, 'Stay on top', Option_playerstaytop.Checked);
@@ -6482,6 +6580,8 @@ begin
       else
         // SAVE
         begin
+          WriteBool(SECT_APP, 'Updates checking', Option_checkupdates.Checked);
+          WriteDateTime(SECT_APP, 'Last update check', LastUpdateCheck);
           WriteBool(SECT_GENERAL, 'Visualisations', Visualisation_Player.Visible);
           WriteBool(SECT_GENERAL, 'Value rating', ValueRatingMode);
           WriteBool(SECT_GENERAL, 'Save queue', Option_savequeue.Checked);
@@ -6519,6 +6619,8 @@ begin
   Music_Play.Enabled := Player.IsFileOpen;
   // Music_Prev.Enabled := Player.IsFileOpen; // Check Queue
   // Music_Next.Enabled := Player.IsFileOpen; // Check Queue
+
+  Music_Position.Max:=round(Player.DurationSeconds*10);
 
   PlayerTotalLength := CalculateLength(trunc(Player.DurationSeconds));
 end;
