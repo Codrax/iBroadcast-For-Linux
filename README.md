@@ -17,6 +17,13 @@
 - Help center to quicly get started
 - And more!
 
+## Dependencies
+- Cod Library Pack units
+- Indy Internet Direct
+- Libssl (Important: Version 1.0)
+- [Bass Audio Library](https://github.com/TDDung/Delphi-BASS)
+- UniqueInstance (Install from Lazarus online package manager)
+
 ## Other
 ### Parameters
 | Parameter  | Description |
