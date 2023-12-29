@@ -1,6 +1,8 @@
 # iBroadcast-For-Linux
  An unofficial iBroadcast client for Debian Linux developed in Lazarus Delphi.
 
+### Also try [iBroadcast for Windows](https://github.com/Codrax/iBroadcast-For-Windows)!
+
 ## Features
 - Play music
 - Rate your tracks, albums and artists
