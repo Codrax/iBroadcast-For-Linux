@@ -9,7 +9,7 @@ interface
     SysUtils, Classes, Graphics, IdSSLOpenSSL,
     IdHTTP, fpjson, Clipbrd, DateUtils, Cod.Types, fileutil,
     Cod.VarHelpers, Cod.ArrayHelpers, Forms,
-    jsonparser, Dialogs, Cod.VersionUpdate;
+    jsonparser, Dialogs, Cod.VersionUpdate, IdURI;
 
   type
     // Cardinals
@@ -384,7 +384,7 @@ const
   STREAMING_ENDPOINT = 'https://streaming.ibroadcast.com';
 
   API_VERSION = '1.0.0';
-  APP_VERSION: TVersionRec = (Major:1; Minor:0; Maintenance:0);
+  APP_VERSION: TVersionRec = (Major:1; Minor:0; Maintenance:3);
 
   // Artwork Store
   ART_EXT = '.jpeg';
@@ -2170,7 +2170,13 @@ end;
 
 function TTrackItem.GetPlaybackURL: string;
 begin
-  Result := STREAMING_ENDPOINT + StreamLocations;
+  // Format URI
+  Result := STREAMING_ENDPOINT + StreamLocations+
+    Format('?Signature=%S&file_id=%U&user_id=%U&platform=%S&version=%S',
+    [TOKEN, ID, USER_ID, CLIENT_NAME, APP_VERSION.ToString]);
+
+  // Encode URI
+  Result := TIdURI.URLEncode(Result);
 end;
 
 function TTrackItem.ArtworkLoaded(Large: boolean): boolean;

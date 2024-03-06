@@ -8,9 +8,8 @@
         <Filename Value="iBroadcast.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="24"/>
         <CursorPos X="18" Y="54"/>
-        <UsageCount Value="64"/>
+        <UsageCount Value="65"/>
       </Unit>
       <Unit>
         <Filename Value="mainui.pas"/>
@@ -20,13 +19,12 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainUI"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="3171"/>
-        <CursorPos X="45" Y="3180"/>
-        <UsageCount Value="64"/>
-        <Bookmarks Count="3">
-          <Item0 Y="1519" ID="1"/>
-          <Item1 X="10" Y="1442" ID="2"/>
-          <Item2 X="9" Y="2160" ID="3"/>
+        <TopLine Value="3244"/>
+        <CursorPos X="43" Y="3268"/>
+        <UsageCount Value="65"/>
+        <Bookmarks Count="2">
+          <Item0 X="10" Y="1443" ID="2"/>
+          <Item1 X="9" Y="2161" ID="3"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -40,7 +38,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="8" Y="42"/>
-        <UsageCount Value="48"/>
+        <UsageCount Value="49"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/popupplayform.pas"/>
@@ -52,7 +50,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="74"/>
         <CursorPos X="25" Y="87"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/shutdownform.pas"/>
@@ -62,7 +60,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="11" Y="29"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="34"/>
       </Unit>
       <Unit>
         <Filename Value="SpectrumVis3D.pas"/>
@@ -75,7 +73,7 @@
         <ComponentName Value="Login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="19"/>
         <CursorPos X="49" Y="34"/>
         <UsageCount Value="10"/>
@@ -101,10 +99,10 @@
       <Unit>
         <Filename Value="libdefine.pas"/>
         <UnitName Value="LibDefine"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="4"/>
-        <CursorPos X="45" Y="21"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="20"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Delphi-BASS-main/BassVersions/BASS/Core/BassLibs.pas"/>
@@ -121,11 +119,10 @@
       </Unit>
       <Unit>
         <Filename Value="BroadcastAPI.pas"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="372"/>
-        <CursorPos X="62" Y="387"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="565"/>
+        <CursorPos Y="592"/>
         <UsageCount Value="23"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/loadinglibrary.pas"/>
@@ -168,7 +165,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="About"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="13" Y="9"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
@@ -205,11 +202,10 @@
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.Types.pas"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="842"/>
         <CursorPos X="49" Y="844"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.StringUtils.pas"/>
@@ -255,7 +251,6 @@
         <TopLine Value="437"/>
         <CursorPos X="14" Y="451"/>
         <UsageCount Value="8"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="../Indy Internet Direct 10/Lib/System/IdComponent.pas"/>
@@ -263,7 +258,6 @@
         <TopLine Value="89"/>
         <CursorPos X="3" Y="98"/>
         <UsageCount Value="8"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/taskexecution.pas"/>
@@ -444,7 +438,6 @@
         <TopLine Value="417"/>
         <CursorPos Y="432"/>
         <UsageCount Value="10"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/lclintf.pas"/>
@@ -463,149 +456,102 @@
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.VersionUpdate.pas"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="33" Y="7"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="71"/>
         <CursorPos Y="81"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="1401"/>
         <CursorPos X="20" Y="1417"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Libraries/Codrut Library Pack/Cod.VersionUpdate.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="34" Y="8"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Indy Internet Direct 10/Lib/System/IdStack.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="925"/>
+        <CursorPos Y="942"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Libraries/Codrut Library Pack/Cod.Audio.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Indy Internet Direct 10/Lib/System/IdStackConsts.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="650"/>
+        <CursorPos X="3" Y="667"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Indy Internet Direct 10/Lib/Protocols/IdSSLOpenSSLHeaders.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19535"/>
+        <CursorPos Y="19551"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Indy Internet Direct 10/Lib/Protocols/IdSSLOpenSSL.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="220"/>
+        <CursorPos X="52" Y="237"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Indy Internet Direct 10/Lib/Protocols/IdHTTP.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1909"/>
+        <CursorPos X="48" Y="1926"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Indy Internet Direct 10/Lib/Core/IdTCPClient.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="314"/>
+        <CursorPos Y="328"/>
+        <UsageCount Value="10"/>
+        <Bookmarks Count="1">
+          <Item0 X="24" Y="326" ID="1"/>
+        </Bookmarks>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="2">
       <Position>
-        <Filename Value="/usr/share/lazarus/2.2.6/lcl/graphics.pp"/>
-        <Caret Line="1417" Column="20" TopLine="1401"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="1116" Column="49" TopLine="1103"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="84" Column="33" TopLine="69"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="830" Column="19" TopLine="815"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="57" Column="80" TopLine="42"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="297" Column="4" TopLine="283"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="829" Column="15" TopLine="814"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="297" Column="4" TopLine="282"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="325" Column="57" TopLine="305"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="57" Column="80" TopLine="42"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="84" Column="72" TopLine="69"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="1031" Column="5" TopLine="1027"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="83" Column="99" TopLine="69"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="1029" Column="3" TopLine="1027"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="83" Column="13" TopLine="67"/>
-      </Position>
-      <Position>
-        <Filename Value="../Libraries/Codrut Library Pack/Cod.Graphics.pas"/>
-        <Caret Line="1026" TopLine="1018"/>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3259" TopLine="3246"/>
       </Position>
       <Position>
         <Filename Value="mainui.pas"/>
-        <Caret Line="865" Column="34" TopLine="850"/>
+        <Caret Line="3269" Column="43" TopLine="3245"/>
       </Position>
       <Position>
         <Filename Value="mainui.pas"/>
-        <Caret Line="94" Column="26" TopLine="79"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="1420" Column="22" TopLine="1406"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="1411" Column="3" TopLine="1396"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="352" Column="15" TopLine="338"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="1451" Column="3" TopLine="1436"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="1402" Column="14" TopLine="1397"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="1519" TopLine="1490"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="22" Column="16" TopLine="7"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3144" Column="72" TopLine="3132"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3645" Column="21" TopLine="3635"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3187" TopLine="3171"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3190" TopLine="3171"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3191" TopLine="3171"/>
+        <Caret Line="3268" Column="43" TopLine="3244"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -619,15 +565,14 @@
       </Modes>
     </RunParams>
     <HistoryLists>
-      <List Name="LaunchingApplication" Type="File" Count="2">
-        <Item2 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+      <List Name="LaunchingApplication" Type="File" Count="1">
+        <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
-      <List Name="CommandLineParameters" Count="4">
+      <List Name="CommandLineParameters" Count="3">
         <Item1 Value="--debug"/>
-        <Item3 Value="--offline"/>
-        <Item4 Value="--help"/>
+        <Item2 Value="--offline"/>
+        <Item3 Value="--help"/>
       </List>
-      <List Name="WorkingDirectory" Type="File" Count="1"/>
     </HistoryLists>
   </ProjectSession>
   <Debugging>

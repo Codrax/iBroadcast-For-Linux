@@ -441,6 +441,7 @@ type
     Equaliser_Indic: TLabel;
     Filter_Box: TEdit;
     FlowPanel1: TFlowPanel;
+    IdHTTP1: TIdHTTP;
     Label1: TLabel;
     Label12: TLabel;
     Label13: TLabel;
@@ -6622,7 +6623,10 @@ begin
 
   Music_Position.Max:=round(Player.DurationSeconds*10);
 
-  PlayerTotalLength := CalculateLength(trunc(Player.DurationSeconds));
+  if Player.IsFileOpen then
+    PlayerTotalLength := CalculateLength(trunc(Player.DurationSeconds))
+  else
+    PlayerTotalLength := '00:00';
 end;
 
 procedure TMain.PlayerApplySettings;

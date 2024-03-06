@@ -23,7 +23,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="Forms;../Libraries/Codrut Library Pack;../Libraries/Delphi-BASS-main/BassVersions/BASS/Core;../Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons"/>
+            <OtherUnitFiles Value="Forms;../../Lazarus Apps/Libraries/Codrut Library Pack;../../Lazarus Apps/Libraries/Delphi-BASS-main/BassVersions/BASS/Core;../../Lazarus Apps/Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -63,7 +63,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="Forms;../Libraries/Codrut Library Pack;../Libraries/Delphi-BASS-main/BassVersions/BASS/Core;../Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons"/>
+            <OtherUnitFiles Value="Forms;../../Lazarus Apps/Libraries/Codrut Library Pack;../../Lazarus Apps/Libraries/Delphi-BASS-main/BassVersions/BASS/Core;../../Lazarus Apps/Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -148,7 +148,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="Forms;../Libraries/Codrut Library Pack;../Libraries/Delphi-BASS-main/BassVersions/BASS/Core;../Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons"/>
+      <OtherUnitFiles Value="Forms;../../Lazarus Apps/Libraries/Codrut Library Pack;../../Lazarus Apps/Libraries/Delphi-BASS-main/BassVersions/BASS/Core;../../Lazarus Apps/Libraries/Delphi-BASS-main/BassVersions/BASS/Add-ons"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
