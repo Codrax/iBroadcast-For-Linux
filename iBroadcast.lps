@@ -19,6 +19,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainUI"/>
         <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3244"/>
         <CursorPos X="43" Y="3268"/>
         <UsageCount Value="65"/>
@@ -26,8 +27,6 @@
           <Item0 X="10" Y="1443" ID="2"/>
           <Item1 X="9" Y="2161" ID="3"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/createplaylistform.pas"/>
@@ -73,11 +72,10 @@
         <ComponentName Value="Login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="49" Y="34"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/helpform.pas"/>
@@ -99,10 +97,9 @@
       <Unit>
         <Filename Value="libdefine.pas"/>
         <UnitName Value="LibDefine"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos Y="20"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../Libraries/Delphi-BASS-main/BassVersions/BASS/Core/BassLibs.pas"/>
@@ -165,10 +162,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="About"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="13" Y="9"/>
         <UsageCount Value="21"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/controls.pp"/>
@@ -470,11 +466,10 @@
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1401"/>
         <CursorPos X="20" Y="1417"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../../Lazarus Apps/Libraries/Codrut Library Pack/Cod.VersionUpdate.pas"/>
@@ -540,20 +535,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="2">
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3259" TopLine="3246"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3269" Column="43" TopLine="3245"/>
-      </Position>
-      <Position>
-        <Filename Value="mainui.pas"/>
-        <Caret Line="3268" Column="43" TopLine="3244"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default">
