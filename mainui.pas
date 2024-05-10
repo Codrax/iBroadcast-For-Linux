@@ -1158,7 +1158,7 @@ begin
       if Newer and (MessageDlg('New version released', 'There is a new version of iBroadcast avalabile to download. Version ' + ServerVersion.ToString()
       + #13'Would you like to download It now?',
         mtInformation, [mbYes, mbNo], 0) = mrYes) then
-          OpenURL('https://www.codrutsoft.com/apps/ibroadcast/');
+          OpenURL('https://www.codrutsoft.com/apps/ibroadcast-linux/');
     end
       else
         Main.Label_UpdateStat.Caption:='Failed to check for updates';
@@ -4910,7 +4910,7 @@ end;
 
 procedure TMain.QueueNext;
 begin
-  if QueueIndex <= Queue.Count-2 then
+  if QueueIndex < Queue.Count-1 then
     QueueSetPos(QueueIndex+1)
   else
     if RepeatMode = TRepeat.All then
@@ -4950,7 +4950,7 @@ end;
 procedure TMain.QueueUpdateUI;
 begin
   Music_Prev.Enabled:=QueueIndex>0;
-  Music_Next.Enabled:=(QueueIndex<Queue.Count-2) and not ((RepeatMode = TRepeat.Off) and (QueueIndex=Queue.Count-1));
+  Music_Next.Enabled:=(QueueIndex<Queue.Count-1) and not ((RepeatMode = TRepeat.Off) and (QueueIndex=Queue.Count-1));
 
   // Repeat
   case RepeatMode of
@@ -6456,7 +6456,7 @@ begin
     QueuePlayCurrent
   else
   // Check for next
-  if QueueIndex < Queue.Count-2 then
+  if QueueIndex < Queue.Count-1 then
     QueueNext
   else
   // Queue repeat
