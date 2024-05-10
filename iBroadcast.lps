@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="18" Y="54"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="71"/>
       </Unit>
       <Unit>
         <Filename Value="mainui.pas"/>
@@ -19,14 +19,16 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainUI"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="3244"/>
-        <CursorPos X="43" Y="3268"/>
-        <UsageCount Value="65"/>
-        <Bookmarks Count="2">
-          <Item0 X="10" Y="1443" ID="2"/>
-          <Item1 X="9" Y="2161" ID="3"/>
+        <TopLine Value="3938"/>
+        <CursorPos X="17" Y="3957"/>
+        <UsageCount Value="71"/>
+        <Bookmarks Count="3">
+          <Item0 X="16" Y="3097" ID="3"/>
+          <Item1 X="19" Y="1666" ID="2"/>
+          <Item2 X="25" Y="3954" ID="1"/>
         </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/createplaylistform.pas"/>
@@ -37,7 +39,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="8" Y="42"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="55"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/popupplayform.pas"/>
@@ -48,8 +50,8 @@
         <UnitName Value="PopupPlayForm"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="74"/>
-        <CursorPos X="25" Y="87"/>
-        <UsageCount Value="46"/>
+        <CursorPos X="3" Y="95"/>
+        <UsageCount Value="52"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/shutdownform.pas"/>
@@ -59,7 +61,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="11" Y="29"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="40"/>
       </Unit>
       <Unit>
         <Filename Value="SpectrumVis3D.pas"/>
@@ -116,10 +118,11 @@
       </Unit>
       <Unit>
         <Filename Value="BroadcastAPI.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="565"/>
-        <CursorPos Y="592"/>
-        <UsageCount Value="23"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="2217"/>
+        <CursorPos Y="2234"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="Forms/loadinglibrary.pas"/>
@@ -137,16 +140,18 @@
         <ComponentName Value="ItemInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="214"/>
-        <CursorPos X="61" Y="222"/>
-        <UsageCount Value="10"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="38"/>
+        <CursorPos X="23" Y="54"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/sysutils/syshelph.inc"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="3" Y="5"/>
-        <UsageCount Value="8"/>
+        <CursorPos X="32" Y="4"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/forms.pp"/>
@@ -185,9 +190,9 @@
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/inc/objpash.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="198"/>
-        <CursorPos X="22" Y="208"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="241"/>
+        <CursorPos X="20" Y="256"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/inc/objpas.inc"/>
@@ -213,8 +218,8 @@
       <Unit>
         <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/classesh.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="797"/>
-        <CursorPos X="3" Y="813"/>
+        <TopLine Value="799"/>
+        <CursorPos X="3" Y="816"/>
         <UsageCount Value="11"/>
       </Unit>
       <Unit>
@@ -403,10 +408,11 @@
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/customtimer.pas"/>
         <UnitName Value="CustomTimer"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="164"/>
-        <CursorPos Y="180"/>
-        <UsageCount Value="10"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="139"/>
+        <CursorPos Y="155"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="/usr/share/lazarus/2.2.6/lcl/popupnotifier.pas"/>
@@ -534,8 +540,180 @@
         </Bookmarks>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
+      <Unit>
+        <Filename Value="mainui.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Libraries/Codrut Library Pack/Cod.Types.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="949"/>
+        <CursorPos Y="952"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/fpcsrc/3.2.2/rtl/objpas/classes/stringl.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2019"/>
+        <CursorPos X="3" Y="2021"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Libraries/Codrut Library Pack/Cod.ArrayHelpers.pas"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="112"/>
+        <CursorPos Y="129"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="100"/>
+        <CursorPos Y="116"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../Lazarus Apps/Libraries/Codrut Library Pack/Cod.Files.pas"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="153"/>
+        <CursorPos X="3" Y="160"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="/usr/share/lazarus/2.2.6/lcl/interfaces/gtk2/gtk2callback.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2762"/>
+        <CursorPos Y="2780"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <Caret Line="89" Column="47" TopLine="81"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <Caret Line="88" Column="47" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <Caret Line="100" Column="28" TopLine="81"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <Caret Line="244" Column="84" TopLine="221"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <Caret Line="51" Column="15" TopLine="35"/>
+      </Position>
+      <Position>
+        <Filename Value="Forms/iteminformation.pas"/>
+        <Caret Line="247" Column="15" TopLine="223"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3755" Column="39" TopLine="3737"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3773" Column="90" TopLine="3771"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3951" Column="27" TopLine="3937"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="419" Column="15" TopLine="404"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="2189" Column="19" TopLine="2164"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="420" Column="15" TopLine="414"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3662" Column="17" TopLine="3633"/>
+      </Position>
+      <Position>
+        <Filename Value="mainui.pas"/>
+        <Caret Line="3957" Column="17" TopLine="3938"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2224" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2225" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2226" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2227" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2228" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2233" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2224" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2225" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2226" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2227" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2225" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2227" Column="16" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2225" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2226" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2227" TopLine="2217"/>
+      </Position>
+      <Position>
+        <Filename Value="BroadcastAPI.pas"/>
+        <Caret Line="2228" TopLine="2217"/>
+      </Position>
+    </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default">
@@ -547,25 +725,15 @@
       </Modes>
     </RunParams>
     <HistoryLists>
-      <List Name="LaunchingApplication" Type="File" Count="1">
-        <Item1 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
+      <List Name="LaunchingApplication" Type="File" Count="2">
+        <Item2 Value="/usr/bin/gnome-terminal -t &apos;Lazarus Run Output&apos; -e &apos;$(LazarusDir)/tools/runwait.sh $(TargetCmdLine)&apos;"/>
       </List>
       <List Name="CommandLineParameters" Count="3">
         <Item1 Value="--debug"/>
         <Item2 Value="--offline"/>
         <Item3 Value="--help"/>
       </List>
+      <List Name="WorkingDirectory" Type="File" Count="1"/>
     </HistoryLists>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="BroadcastAPI.pas"/>
-        <Line Value="1126"/>
-      </Item>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>

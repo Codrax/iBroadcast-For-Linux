@@ -14,15 +14,16 @@ type
 
   TItemInfo = class(TForm)
     Button2: TButton;
+    Item_Downloaded: TButton;
+    Label4: TLabel;
+    Download_Box: TPanel;
     SavePictureDialog1: TSavePictureDialog;
     Save_Button: TButton;
-    Item_Downloaded: TButton;
     Item_Name: TEdit;
     Item_Rating: TButton;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     Item_Description: TMemo;
     Item_Image: TImage;
     MenuItem1: TMenuItem;
@@ -51,7 +52,6 @@ type
 
     procedure LoadInformation;
     procedure Prepare;
-
   end;
 
 var
@@ -240,7 +240,9 @@ begin
   Rate_Box.Visible := Item^.Source in [TDataSource.Tracks, TDataSource.Albums];
 
   // Download
-  LoadDownload;
+  Download_Box.Visible:=not(Item^.Source in [TDataSource.None, TDataSource.Genres]);
+  if Download_Box.Visible then
+    LoadDownload;
 
   // Status
   ChangedName := false;

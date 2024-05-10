@@ -8,7 +8,7 @@ interface
     // Required Units
     SysUtils, Classes, Graphics, IdSSLOpenSSL,
     IdHTTP, fpjson, Clipbrd, DateUtils, Cod.Types, fileutil,
-    Cod.VarHelpers, Cod.ArrayHelpers, Forms,
+    Cod.VarHelpers, Cod.ArrayHelpers, Forms, Cod.Files,
     jsonparser, Dialogs, Cod.VersionUpdate, IdURI;
 
   type
@@ -18,7 +18,7 @@ interface
     TWorkItems = set of TWorkItem;
 
     // Source
-    TDataSource = (None, Tracks, Albums, Artists, Playlists);
+    TDataSource = (None, Tracks, Albums, Artists, Playlists, Genres);
     TDataSources = set of TDataSource;
 
     // Loading
@@ -68,7 +68,7 @@ interface
     end;
 
     TTrackHistoryItem = record
-      TrackID: integer;
+      TrackID: string;
       TimeStamp: TDateTime;
     end;
 
@@ -107,7 +107,7 @@ interface
 
     TTrackItem = record
       (* Song properties in their JSON order, "?" is a unknown property *)
-      ID: integer;
+      ID: string;
 
       TrackNumber: cardinal;
 
@@ -117,9 +117,9 @@ interface
       Genre: string;
 
       LengthSeconds: cardinal;
-      AlbumID: cardinal;
+      AlbumID: string;
       ArtworkID: string;
-      ArtistID: cardinal;
+      ArtistID: string;
 
       // ??? Some ID integer
       DayUploaded: TDate;
@@ -156,12 +156,12 @@ interface
 
     TAlbumItem = record
       (* Album properties in their JSON order, "?" is a unknown property *)
-      ID: integer;
+      ID: string;
 
       AlbumName: string;
 
-      TracksID: TIntArray;
-      ArtistID: integer;
+      TracksID: TStringArray;
+      ArtistID: string;
 
       IsInTrash: boolean;
 
@@ -185,11 +185,11 @@ interface
 
     TArtistItem = record
       (* Album properties in their JSON order, "?" is a unknown property *)
-      ID: integer;
+      ID: string;
 
       ArtistName: string;
 
-      TracksID: TIntArray;
+      TracksID: TStringArray;
       IsInTrash: boolean;
 
       Rating: cardinal;
@@ -214,11 +214,11 @@ interface
 
     TPlaylistItem = record
       (* Album properties in their JSON order, "?" is a unknown property *)
-      ID: integer;
+      ID: string;
 
       Name: string;
 
-      TracksID: TIntArray;
+      TracksID: TStringArray;
       // ??? UID
       // ??? system_created
       // ??? public_id
@@ -244,6 +244,22 @@ interface
       procedure LoadFrom(JSONPair: TJSONData; AName: string);
     end;
 
+    { TGenreItem }
+
+    TGenreItem = record
+      (* Album properties in their JSON order, "?" is a unknown property *)
+      ID: string;
+
+      TracksID: TStringArray;
+
+      CachedImage: TJpegImage;
+      Status: TWorkItems;
+
+      (* Artwork *)
+      function ArtworkLoaded: boolean;
+      function GetArtwork: TJPEGImage;
+    end;
+
     TSession = record
       DeviceName: string;
 
@@ -263,16 +279,18 @@ interface
     TAlbums = TArray<TAlbumItem>;
     TTracks = TArray<TTrackItem>;
     TPlaylists = TArray<TPlaylistItem>;
+    TGenres = TArray<TGenreItem>;
     TSessions = TArray<TSession>;
 
   // Get Data
-  function GetTrack(ID: integer): integer;
-  function GetAlbum(ID: integer): integer;
-  function GetArtist(ID: integer): integer;
-  function GetPlaylist(ID: integer): integer;
+  function GetTrack(ID: string): integer;
+  function GetAlbum(ID: string): integer;
+  function GetArtist(ID: string): integer;
+  function GetPlaylist(ID: string): integer;
+  function GetGenre(ID: string): integer;
 
-  function GetData(ID: integer; Source: TDataSource): integer;
-  function GetItemID(Index: integer; Source: TDataSource): integer;
+  function GetData(ID: string; Source: TDataSource): integer;
+  function GetItemID(Index: integer; Source: TDataSource): string;
 
   function GetPlaylistOfType(AType: string): integer; (* thumbsup, recently-played, recently-uploaded *)
 
@@ -299,47 +317,49 @@ interface
   procedure APIFreeMemory;
 
   // Artwork Store
-  procedure AddToArtworkStore(ID: integer; Cache: TJpegImage; AType: TDataSource);
-  function ExistsInStore(ID: integer; AType: TDataSource): boolean;
-  function GetArtStoreCache(ID: integer; AType: TDataSource): TJpegImage;
+  procedure AddToArtworkStore(ID: string; Cache: TJpegImage; AType: TDataSource);
+  function ExistsInStore(ID: string; AType: TDataSource): boolean;
+  function GetArtStoreCachePath(ID: string; Extension: string; AType: TDataSource): string;
+  function GetArtStoreCache(ID: string; AType: TDataSource): TJpegImage;
   function GetArtworkStore(AType: TDataSource = TDataSource.None): string;
   procedure ClearArtworkStore;
   procedure InitiateArtworkStore;
 
   // Tracks
-  function UpdateTrackRating(ID: integer; Rating: integer; ReloadLibrary: boolean): boolean;
-  function GetSongPlaylists(ID: integer): TIntArray;
+  function UpdateTrackRating(ID: string; Rating: integer; ReloadLibrary: boolean): boolean;
+  function GetSongPlaylists(ID: string): TStringArray;
 
-  function TrackRatingToLikedPlaylist(ID: integer): boolean;
+  function TrackRatingToLikedPlaylist(ID: string): boolean;
 
   // Rating
   function RatingToString(Rating: integer): string;
 
   // Albums
-  function UpdateAlbumRating(ID: integer; Rating: integer; ReloadLibrary: boolean): boolean;
+  function UpdateAlbumRating(ID: string; Rating: integer; ReloadLibrary: boolean): boolean;
 
   // Artists
-  function UpdateArtistRating(ID: integer; Rating: integer; ReloadLibrary: boolean): boolean;
+  function UpdateArtistRating(ID: string; Rating: integer; ReloadLibrary: boolean): boolean;
 
   // Playlist
-  function CreateNewPlayList(Name, Description: string; MakePublic: boolean; Tracks: TIntArray): boolean; overload;
+  function CreateNewPlayList(Name, Description: string; MakePublic: boolean; Tracks: TStringArray): boolean; overload;
   function CreateNewPlayList(Name, Description: string; MakePublic: boolean; Mood: string): boolean; overload;
-  function AppentToPlaylist(ID: integer; Tracks: TIntArray): boolean;
-  function PreappendToPlaylist(ID: integer; Tracks: TIntArray): boolean;
-  function ChangePlayList(ID: integer; Tracks: TIntArray): boolean;
-  function DeleteFromPlaylist(ID: integer; Tracks: TIntArray): boolean;
-  function TouchupPlaylist(ID: integer): boolean;
-  function UpdatePlayList(ID: integer; Name, Description: string; ReloadLibrary: boolean): boolean;
-  function DeletePlayList(ID: integer): boolean;
-  function DeleteTracks(Tracks: TArray<integer>): boolean;
-  function DeleteTrack(ID: integer): boolean;
-  function DeleteAlbum(ID: integer): boolean;
-  function DeleteArtist(ID: integer): boolean;
-  function RestoreTracks(Tracks: TArray<integer>): boolean;
-  function RestoreTrack(ID: integer): boolean;
-  function RestoreAlbum(ID: integer): boolean;
-  function RestoreArtist(ID: integer): boolean;
-  function EmptyTrash(Tracks: TArray<integer>): boolean;
+  function AppentToPlaylist(ID: string; Tracks: TStringArray): boolean;
+  function PreappendToPlaylist(ID: string; Tracks: TStringArray): boolean;
+  function ChangePlayList(ID: string; Tracks: TStringArray): boolean;
+  function DeleteFromPlaylist(ID: string; Tracks: TStringArray): boolean;
+  function TouchupPlaylist(ID: string): boolean;
+  function UpdatePlayList(ID: string; Name, Description: string; ReloadLibrary: boolean): boolean;
+  function DeletePlayList(ID: string): boolean;
+  function DeleteGenre(ID: string): boolean;
+  function DeleteTracks(Tracks: TStringArray): boolean;
+  function DeleteTrack(ID: string): boolean;
+  function DeleteAlbum(ID: string): boolean;
+  function DeleteArtist(ID: string): boolean;
+  function RestoreTracks(Tracks: TStringArray): boolean;
+  function RestoreTrack(ID: string): boolean;
+  function RestoreAlbum(ID: string): boolean;
+  function RestoreArtist(ID: string): boolean;
+  function EmptyTrash(Tracks: TStringArray): boolean;
   function CompleteEmptyTrash: boolean;
 
   // History
@@ -349,11 +369,12 @@ interface
   procedure LoadStatus;
   procedure LoadLibrary;
   procedure LoadLibraryAdvanced(LoadSet: TLoadSet);
+  procedure LoadLibraryGenres;
   procedure EmptyLibrary;
 
   // Additional Data
   function GetSongArtwork(ID: string; Size: TArtSize = TArtSize.Small): TJpegImage;
-  function SongArtCollage(ID1, ID2, ID3, ID4: integer): TJpegImage;
+  function SongArtCollage(ID1, ID2, ID3, ID4: string): TJpegImage;
 
   // Status
   procedure SetWorkStatus(Status: string);
@@ -384,7 +405,7 @@ const
   STREAMING_ENDPOINT = 'https://streaming.ibroadcast.com';
 
   API_VERSION = '1.0.0';
-  APP_VERSION: TVersionRec = (Major:1; Minor:0; Maintenance:3);
+  APP_VERSION: TVersionRec = (Major:1; Minor:1; Maintenance:0);
 
   // Artwork Store
   ART_EXT = '.jpeg';
@@ -435,24 +456,24 @@ const
 
   REQUEST_LIST_DELETE = REQUEST_HEADER + ','
     + '"mode": "deleteplaylist",'
-    + '"playlist": %D'
+    + '"playlist": %S'
     + '}';
 
   REQUEST_LIST_ADD = REQUEST_HEADER + ','
     + '"mode": "appendplaylist",'
-    + '"playlist": %D,'
+    + '"playlist": %S,'
     + '"tracks": [%S]'
     + '}';
 
   REQUEST_LIST_SET = REQUEST_HEADER + ','
     + '"mode": "updateplaylist",'
-    + '"playlist": %D,'
+    + '"playlist": %S,'
     + '"tracks": [%S]'
     + '}';
 
   REQUEST_LIST_UPDATE = REQUEST_HEADER + ','
     + '"mode": "updateplaylist",'
-    + '"playlist": %D,'
+    + '"playlist": %S,'
     + '"name": "%S",'
     + '"supported_types": false,'
     + '"description": "%S"'
@@ -477,19 +498,19 @@ const
   // Rating
   REQUEST_RATE_TRACK = REQUEST_HEADER + ','
     + '"mode": "ratetrack",'
-    + '"track_id": %D,'
+    + '"track_id": %S,'
     + '"rating": %D'
     + '}';
 
   REQUEST_RATE_ALBUM = REQUEST_HEADER + ','
     + '"mode": "ratealbum",'
-    + '"album_id": %D,'
+    + '"album_id": %S,'
     + '"rating": %D'
     + '}';
 
   REQUEST_RATE_ARTIST = REQUEST_HEADER + ','
     + '"mode": "rateartist",'
-    + '"artist_id": %D,'
+    + '"artist_id": %S,'
     + '"rating": %D'
     + '}';
 
@@ -554,6 +575,7 @@ var
   Albums: TAlbums;
   Artists: TArtists;
   Playlists: TPlaylists;
+  Genres: TGenres;
 
   DefaultPicture: TJPEGImage;
 
@@ -704,7 +726,7 @@ begin
     end;
 end;
 
-procedure AddToArtworkStore(ID: integer; Cache: TJpegImage; AType: TDataSource);
+procedure AddToArtworkStore(ID: string; Cache: TJpegImage; AType: TDataSource);
 var
   LifeSaver: TSaveArtClass;
 begin
@@ -712,7 +734,7 @@ begin
   LifeSaver := TSaveArtClass.Create;
   try
     LifeSaver.Image := Cache;
-    LifeSaver.FilePath:=GetArtworkStore(AType) + ID.ToString + ART_EXT;
+    LifeSaver.FilePath:=GetArtStoreCachePath(ID, ART_EXT, AType);
 
     LifeSaver.Save;
   finally
@@ -720,23 +742,31 @@ begin
   end;
 end;
 
-function ExistsInStore(ID: integer; AType: TDataSource): boolean;
+function ExistsInStore(ID: string; AType: TDataSource): boolean;
 var
   Path: string;
 begin
   if not ArtworkStore then
     Exit(false);
 
-  Path := GetArtworkStore(AType) + ID.ToString + ART_EXT;
+  Path := GetArtStoreCachePath(ID, ART_EXT, AType);
 
   Result := fileexists( Path );
 end;
 
-function GetArtStoreCache(ID: integer; AType: TDataSource): TJpegImage;
+function GetArtStoreCachePath(ID: string; Extension: string; AType: TDataSource
+  ): string;
+begin
+  if AType in [TDataSource.Genres] then
+      ID := ValidateFileName(ID);
+  Result := GetArtworkStore(AType) + ID + Extension;
+end;
+
+function GetArtStoreCache(ID: string; AType: TDataSource): TJpegImage;
 var
   Path: string;
 begin
-  Path := GetArtworkStore(AType) + ID.ToString + ART_EXT;
+  Path := GetArtStoreCachePath(ID, ART_EXT, AType);
 
   Result := TJpegImage.Create;
   Result.LoadFromFile(Path);
@@ -750,6 +780,7 @@ begin
     TDataSource.Albums: Result := Result + 'albums';
     TDataSource.Artists: Result := Result + 'artists';
     TDataSource.Playlists: Result := Result + 'playlists';
+    TDataSource.Genres: Result := Result + 'genres';
   end;
 
   Result := IncludeTrailingPathDelimiter(Result);
@@ -782,9 +813,10 @@ begin
   MkDir(GetArtworkStore(TDataSource.Albums));
   MkDir(GetArtworkStore(TDataSource.Artists));
   MkDir(GetArtworkStore(TDataSource.Playlists));
+  MkDir(GetArtworkStore(TDataSource.Genres));
 end;
 
-function UpdateTrackRating(ID: integer; Rating: integer; ReloadLibrary: boolean): boolean;
+function UpdateTrackRating(ID: string; Rating: integer; ReloadLibrary: boolean): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -811,7 +843,7 @@ begin
     LoadLibraryAdvanced([TLoad.Track]);
 end;
 
-function GetSongPlaylists(ID: integer): TIntArray;
+function GetSongPlaylists(ID: string): TStringArray;
 var
   I: Integer;
 begin
@@ -822,7 +854,7 @@ begin
       Result.AddValue(Playlists[I].ID);
 end;
 
-function TrackRatingToLikedPlaylist(ID: integer): boolean;
+function TrackRatingToLikedPlaylist(ID: string): boolean;
 var
   Index, SongIndex: integer;
   Fav, IsFav: boolean;
@@ -843,9 +875,9 @@ begin
       if IsFav <> Fav then
         begin
           if IsFav then
-            Result := PreappendToPlaylist(Playlists[Index].ID, MakeIntArray([ID]))
+            Result := PreappendToPlaylist(Playlists[Index].ID, MakeStrArray([ID]))
           else
-            Result := DeleteFromPlaylist(Playlists[Index].ID, MakeIntArray([ID]));
+            Result := DeleteFromPlaylist(Playlists[Index].ID, MakeStrArray([ID]));
         end;
     end;
 end;
@@ -867,7 +899,7 @@ begin
     end;
 end;
 
-function UpdateAlbumRating(ID: integer; Rating: integer; ReloadLibrary: boolean): boolean;
+function UpdateAlbumRating(ID: string; Rating: integer; ReloadLibrary: boolean): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -894,7 +926,7 @@ begin
     LoadLibraryAdvanced([TLoad.Album]);
 end;
 
-function UpdateArtistRating(ID: integer; Rating: integer; ReloadLibrary: boolean): boolean;
+function UpdateArtistRating(ID: string; Rating: integer; ReloadLibrary: boolean): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -921,7 +953,7 @@ begin
     LoadLibraryAdvanced([TLoad.Artist]);
 end;
 
-function CreateNewPlayList(Name, Description: string; MakePublic: boolean; Tracks: TIntArray): boolean;
+function CreateNewPlayList(Name, Description: string; MakePublic: boolean; Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -937,7 +969,7 @@ begin
   ATotal := High(Tracks);
   for I := 0 to ATotal do
     begin
-      ATracks := ATracks + Tracks[I].ToString;
+      ATracks := ATracks + Tracks[I];
 
       if I < ATotal then
         ATracks := Concat(ATracks, ',');
@@ -990,7 +1022,7 @@ begin
   LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function AppentToPlaylist(ID: integer; Tracks: TIntArray): boolean;
+function AppentToPlaylist(ID: string; Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -1006,7 +1038,7 @@ begin
   ATotal := High(Tracks);
   for I := 0 to ATotal do
     begin
-      ATracks := ATracks + Tracks[I].ToString;
+      ATracks := ATracks + Tracks[I];
 
       if I < ATotal then
         ATracks := Concat(ATracks, ',');
@@ -1032,9 +1064,9 @@ begin
   LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function PreappendToPlaylist(ID: integer; Tracks: TIntArray): boolean;
+function PreappendToPlaylist(ID: string; Tracks: TStringArray): boolean;
 var
-  AllTracks: TIntArray;
+  AllTracks: TStringArray;
   I: Integer;
 begin
   // Get Tracks
@@ -1048,12 +1080,12 @@ begin
   Result := ChangePlayList(ID, AllTracks);
 end;
 
-function ChangePlayList(ID: integer; Tracks: TIntArray): boolean;
+function ChangePlayList(ID: string; Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
 
-  AllTracks: TArray<integer>;
+  AllTracks: TStringArray;
   ATracks: string;
   ATotal: integer;
 
@@ -1068,7 +1100,7 @@ begin
   ATotal := High(AllTracks);
   for I := 0 to ATotal do
     begin
-      ATracks := ATracks + AllTracks[I].ToString;
+      ATracks := ATracks + AllTracks[I];
 
       if I < ATotal then
         ATracks := Concat(ATracks, ',');
@@ -1094,12 +1126,12 @@ begin
   LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function DeleteFromPlaylist(ID: integer; Tracks: TIntArray): boolean;
+function DeleteFromPlaylist(ID: string; Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
 
-  AllTracks: TIntArray;
+  AllTracks: TStringArray;
   ATracks: string;
   ATotal: integer;
 
@@ -1116,7 +1148,7 @@ begin
   ATotal := High(AllTracks);
   for I := 0 to ATotal do
     begin
-      ATracks := ATracks + AllTracks[I].ToString;
+      ATracks := ATracks + AllTracks[I];
 
       if I < ATotal then
         ATracks := Concat(ATracks, ',');
@@ -1142,12 +1174,12 @@ begin
   LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function TouchupPlaylist(ID: integer): boolean;
+function TouchupPlaylist(ID: string): boolean;
 var
   Request: string;
   JResult: ResultType;
 
-  AllTracks: TIntArray;
+  AllTracks: TStringArray;
   ATracks: string;
   ATotal: integer;
 
@@ -1167,7 +1199,7 @@ begin
   ATotal := High(AllTracks);
   for I := 0 to ATotal do
     begin
-      ATracks := ATracks + AllTracks[I].ToString;
+      ATracks := ATracks + AllTracks[I];
 
       if I < ATotal then
         ATracks := Concat(ATracks, ',');
@@ -1193,7 +1225,7 @@ begin
   LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function UpdatePlayList(ID: integer; Name, Description: string; ReloadLibrary: boolean): boolean;
+function UpdatePlayList(ID: string; Name, Description: string; ReloadLibrary: boolean): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -1221,7 +1253,7 @@ begin
     LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function DeletePlayList(ID: integer): boolean;
+function DeletePlayList(ID: string): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -1247,7 +1279,18 @@ begin
   LoadLibraryAdvanced([TLoad.PlayList]);
 end;
 
-function DeleteTracks(Tracks: TArray<integer>): boolean;
+function DeleteGenre(ID: string): boolean;
+var
+  Index: integer;
+begin
+  Result := false;
+  Index := GetGenre(ID);
+
+  if Index <> -1 then
+    Result := DeleteTracks(Genres[Index].TracksID);
+end;
+
+function DeleteTracks(Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -1262,7 +1305,7 @@ begin
   ATracks := '';
   ATotal := High(Tracks);
   for I := 0 to ATotal do
-    ATracks := ATracks + Tracks[I].ToString + ',';
+    ATracks := ATracks + Tracks[I] + ',';
 
   ATracks := Copy(ATracks, 1, Length(ATracks)-1);
 
@@ -1285,7 +1328,7 @@ begin
   LoadLibraryAdvanced([TLoad.Track, TLoad.Album, TLoad.Artist, TLoad.PlayList]);
 end;
 
-function RestoreTracks(Tracks: TArray<integer>): boolean;
+function RestoreTracks(Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -1300,7 +1343,7 @@ begin
   ATracks := '';
   ATotal := High(Tracks);
   for I := 0 to ATotal do
-    ATracks := ATracks + Tracks[I].ToString + ',';
+    ATracks := ATracks + Tracks[I] + ',';
 
   ATracks := Copy(ATracks, 1, Length(ATracks)-1);
 
@@ -1323,7 +1366,7 @@ begin
   LoadLibraryAdvanced([TLoad.Track, TLoad.Album, TLoad.Artist, TLoad.PlayList]);
 end;
 
-function EmptyTrash(Tracks: TArray<integer>): boolean;
+function EmptyTrash(Tracks: TStringArray): boolean;
 var
   Request: string;
   JResult: ResultType;
@@ -1338,7 +1381,7 @@ begin
   ATracks := '';
   ATotal := High(Tracks);
   for I := 0 to ATotal do
-    ATracks := ATracks + Tracks[I].ToString + ',';
+    ATracks := ATracks + Tracks[I] + ',';
 
   ATracks := Copy(ATracks, 1, Length(ATracks)-1);
 
@@ -1363,7 +1406,7 @@ end;
 
 function CompleteEmptyTrash: boolean;
 var
-  ATracks: TIntArray;
+  ATracks: TStringArray;
   I: integer;
 begin
   ATracks := [];
@@ -1375,12 +1418,12 @@ begin
   Result := EmptyTrash(ATracks);
 end;
 
-function RestoreTrack(ID: integer): boolean;
+function RestoreTrack(ID: string): boolean;
 begin
-  Result := RestoreTracks(MakeIntArray([ID]));
+  Result := RestoreTracks(MakeStrArray([ID]));
 end;
 
-function RestoreAlbum(ID: integer): boolean;
+function RestoreAlbum(ID: string): boolean;
 var
   Index: integer;
 begin
@@ -1391,7 +1434,7 @@ begin
     Result := RestoreTracks(Albums[Index].TracksID);
 end;
 
-function RestoreArtist(ID: integer): boolean;
+function RestoreArtist(ID: string): boolean;
 var
   Index: integer;
 begin
@@ -1402,12 +1445,12 @@ begin
     Result := RestoreTracks(Artists[Index].TracksID);
 end;
 
-function DeleteTrack(ID: integer): boolean;
+function DeleteTrack(ID: string): boolean;
 begin
-  Result := DeleteTracks(MakeIntArray([ID]));
+  Result := DeleteTracks(MakeStrArray([ID]));
 end;
 
-function DeleteAlbum(ID: integer): boolean;
+function DeleteAlbum(ID: string): boolean;
 var
   Index: integer;
 begin
@@ -1418,7 +1461,7 @@ begin
     Result := DeleteTracks(Albums[Index].TracksID);
 end;
 
-function DeleteArtist(ID: integer): boolean;
+function DeleteArtist(ID: string): boolean;
 var
   Index: integer;
 begin
@@ -1443,7 +1486,7 @@ var
 
   JSONValue: TJSONObject;
 
-  PlayMap,
+  PlayMap: TStringArray;
   PlayCount: TIntArray;
 
   Day: TDate;
@@ -1490,7 +1533,7 @@ begin
 
     JSONItem := TJSONObject.Create;
     for I := 0 to High(PlayMap) do
-      JSONItem.Add(PlayMap[I].ToString, PlayCount[I]);
+      JSONItem.Add(PlayMap[I], PlayCount[I]);
 
     JSONHist.Add('plays', JSONItem);
 
@@ -1506,7 +1549,7 @@ begin
         JSONItem.Add('ts', DateTimeToString(Items[I].TimeStamp));
 
         JSONArray.Add(JSONItem);
-        JSONEvents.Add(Items[I].TrackID.ToString, JSONArray);
+        JSONEvents.Add(Items[I].TrackID, JSONArray);
       end;
 
     JSONHist.Add('detail', JSONEvents);
@@ -1664,6 +1707,10 @@ begin
           OnUpdateType(TDataSource.Tracks);
       end;
 
+    // Genres
+    if TLoad.Track in LoadSet then
+      LoadLibraryGenres;
+
     // Albums
     if TLoad.Album in LoadSet then
       begin
@@ -1775,6 +1822,38 @@ begin
   ResetWork;
 end;
 
+procedure LoadLibraryGenres;
+var
+  Name: string;
+  Index, I: integer;
+begin
+  // Parse from tracks
+  Genres := [];
+
+  for I := 0 to High(Tracks) do
+    begin
+      // Get name
+      Name := Tracks[I].Genre;
+
+      // Add to index
+      Index := GetGenre(Name);
+      if Index <> -1 then
+        begin
+          Genres[Index].TracksID.AddValue( Tracks[I].ID );
+          continue;
+        end;
+
+      // Add new
+      Index := Length(Genres);
+      SetLength(Genres, Index+1);
+      with Genres[Index] do
+        begin
+          ID := Name;
+          TracksID := [Tracks[I].ID];
+        end;
+    end;
+end;
+
 procedure EmptyLibrary;
 begin
   SetLength(Tracks, 0);
@@ -1858,7 +1937,7 @@ begin
   Result := nil;
 end;
 
-function SongArtCollage(ID1, ID2, ID3, ID4: integer): TJpegImage;
+function SongArtCollage(ID1, ID2, ID3, ID4: string): TJpegImage;
 var
   CollageMaker: TCollageMaker;
 begin
@@ -1898,6 +1977,53 @@ procedure ResetWork;
 begin
   WorkCount := 0;
   TotalWorkCount := 0;
+end;
+
+{ TGenreItem }
+
+function TGenreItem.ArtworkLoaded: boolean;
+begin
+  if TWorkItem.DownloadingImage in Status then
+    Exit(false);
+  Result := (CachedImage <> nil) and (not CachedImage.Empty);
+end;
+
+function TGenreItem.GetArtwork: TJPEGImage;
+var
+  AIndex: integer;
+begin
+  Status := Status + [TWorkItem.DownloadingImage];
+
+  if (CachedImage = nil) or CachedImage.Empty then
+    begin
+      if Length(TracksID) > 0 then
+        begin
+          // Load from Artwork Store
+          if ExistsInStore(ID, TDataSource.Albums)  then
+            CachedImage := GetArtStoreCache(ID, TDataSource.Genres)
+          else
+            // Load from server, save to artowork store
+            begin
+              AIndex := GetTrack( TracksID[0] );
+              if AIndex <> -1 then
+                begin
+                  CachedImage := Tracks[AIndex].GetArtwork();
+
+                  // Save artstore
+                  if ArtworkStore then
+                    AddToArtworkStore(ID, CachedImage, TDataSource.Genres);
+                end
+                  else
+                    CachedImage := DefaultPicture;
+            end;
+        end
+      else
+        CachedImage := DefaultPicture;
+    end;
+
+  Result := CachedImage;
+
+  Status := Status - [TWorkItem.DownloadingImage];
 end;
 
 { TSaveArtClass }
@@ -1985,7 +2111,7 @@ begin
   Abort;
 end;
 
-function GetTrack(ID: integer): integer;
+function GetTrack(ID: string): integer;
 var
   I: Integer;
 begin
@@ -1995,7 +2121,7 @@ begin
       Exit( I );
 end;
 
-function GetAlbum(ID: integer): integer;
+function GetAlbum(ID: string): integer;
 var
   I: Integer;
 begin
@@ -2005,7 +2131,7 @@ begin
       Exit( I );
 end;
 
-function GetArtist(ID: integer): integer;
+function GetArtist(ID: string): integer;
 var
   I: Integer;
 begin
@@ -2015,7 +2141,7 @@ begin
       Exit( I );
 end;
 
-function GetPlaylist(ID: integer): integer;
+function GetPlaylist(ID: string): integer;
 var
   I: Integer;
 begin
@@ -2025,7 +2151,17 @@ begin
       Exit( I );
 end;
 
-function GetData(ID: integer; Source: TDataSource): integer;
+function GetGenre(ID: string): integer;
+var
+  I: Integer;
+begin
+  Result := -1;
+  for I := 0 to High(Genres) do
+    if Genres[I].ID = ID then
+      Exit( I );
+end;
+
+function GetData(ID: string; Source: TDataSource): integer;
 begin
   Result := -1;
   case Source of
@@ -2033,18 +2169,20 @@ begin
     TDataSource.Albums: Exit(GetAlbum(ID));
     TDataSource.Artists: Exit(GetArtist(ID));
     TDataSource.Playlists: Exit(GetPlaylist(ID));
+    TDataSource.Genres: Exit(GetGenre(ID));
   end;
 end;
 
-function GetItemID(Index: integer; Source: TDataSource): integer;
+function GetItemID(Index: integer; Source: TDataSource): string;
 begin
-  Result := -1;
+  Result := '';
   if Index <> -1 then
     case Source of
       TDataSource.Tracks: Exit(Tracks[Index].ID);
       TDataSource.Albums: Exit(Albums[Index].ID);
       TDataSource.Artists: Exit(Artists[Index].ID);
       TDataSource.Playlists: Exit(Playlists[Index].ID);
+      TDataSource.Genres: Exit(Genres[Index].ID);
     end;
 end;
 
@@ -2087,7 +2225,7 @@ begin
   DateTimeFormat.LongTimeFormat := 'hh:nn:ss.zzzzzz';
   DateTimeFormat.DateSeparator := '-';
   DateTimeFormat.TimeSeparator:= ':';
-  Result := StrToTime(ADateTimeStr, DateTimeFormat);
+  Result := StrToTime(trim(ADateTimeStr), DateTimeFormat);
 
   // Unversal Coordinated Time
   if CovertUTC then
@@ -2172,7 +2310,7 @@ function TTrackItem.GetPlaybackURL: string;
 begin
   // Format URI
   Result := STREAMING_ENDPOINT + StreamLocations+
-    Format('?Signature=%S&file_id=%U&user_id=%U&platform=%S&version=%S',
+    Format('?Signature=%S&file_id=%S&user_id=%U&platform=%S&version=%S',
     [TOKEN, ID, USER_ID, CLIENT_NAME, APP_VERSION.ToString]);
 
   // Encode URI
@@ -2231,9 +2369,9 @@ begin
   JSON := JSONPair as TJSONArray;
 
   // Data
-  ID := strtoint(AName);
+  ID := AName;
 
-  SetDataWorkStatus(Format('Loading song with ID of %D', [ID]));
+  SetDataWorkStatus(Format('Loading song with ID of %S', [ID]));
 
   TrackNumber := (JSON.Items[0].AsInteger);
   Year := (JSON.Items[1].AsInteger);
@@ -2243,21 +2381,9 @@ begin
 
   LengthSeconds := (JSON.Items[4].AsInteger);
   // Typecast as number, then as string for legacy accounts
-  try
-    AlbumID := (JSON.Items[5].AsInteger);
-  except
-    AlbumID := strtoint(JSON.Items[5].AsString);
-  end;
-  try
-    ArtworkID := (JSON.Items[6].AsInteger).ToString;
-  except
-    ArtworkID := (JSON.Items[6].AsString);
-  end;
-  try
-    ArtistID := (JSON.Items[7].AsInteger);
-  except
-    ArtistID := strtoint(JSON.Items[7].AsString);
-  end;
+  AlbumID := JSON.Items[5].AsString;
+  ArtworkID := JSON.Items[6].AsString;
+  ArtistID := JSON.Items[7].AsString;
 
   // ?
   DayUploaded := StringToDateTime( JSON.Items[9].AsString );
@@ -2379,14 +2505,14 @@ procedure TAlbumItem.LoadFrom(JSONPair: TJSONData; AName: string);
 var
   JSON, SONGS: TJSONArray;
   I: Integer;
-  AID: integer;
+  AID: string;
 begin
   JSON := JSONPair as TJSONArray;
 
   // Data
-  ID := strtoint(AName);
+  ID := AName;
 
-  SetDataWorkStatus(Format('Loading album with ID of %D', [ID]));
+  SetDataWorkStatus(Format('Loading album with ID of %S', [ID]));
 
   AlbumName := (JSON.Items[0].AsString);
 
@@ -2396,14 +2522,14 @@ begin
 
   for I := 0 to SONGS.Count-1 do
     begin
-      AID := SONGS.Items[I].AsInteger;
+      AID := SONGS.Items[I].AsString;
       // Validate
       if GetTrack(AID) <> -1 then
         TracksID.AddValue( AID );
     end;
 
   // Data 2
-  ArtistID := (JSON.Items[2].AsInteger);
+  ArtistID := (JSON.Items[2].AsString);
 
   IsInTrash := (JSON.Items[3].AsBoolean);
 
@@ -2485,14 +2611,14 @@ procedure TArtistItem.LoadFrom(JSONPair: TJSONData; AName: string);
 var
   JSON, SONGS: TJSONArray;
   I: Integer;
-  AID: integer;
+  AID: string;
 begin
   JSON := JSONPair as TJSONArray;
 
   // Data
-  ID := strtoint(AName);
+  ID := AName;
 
-  SetDataWorkStatus(Format('Loading artist with ID of %D', [ID]));
+  SetDataWorkStatus(Format('Loading artist with ID of %S', [ID]));
 
   ArtistName := (JSON.Items[0].AsString);
 
@@ -2502,7 +2628,7 @@ begin
 
   for I := 0 to SONGS.Count-1 do
     begin
-      AID := SONGS.Items[I].AsInteger;
+      AID := SONGS.Items[I].AsString;
       // Validate
       if GetTrack(AID) <> -1 then
         TracksID.AddValue( AID );
@@ -2587,14 +2713,14 @@ procedure TPlaylistItem.LoadFrom(JSONPair: TJSONData; AName: string);
 var
   JSON, SONGS: TJSONArray;
   I: Integer;
-  AID: integer;
+  AID: string;
 begin
   JSON := JSONPair as TJSONArray;
 
   // Data
-  ID := strtoint(AName);
+  ID := AName;
 
-  SetDataWorkStatus(Format('Loading playlist with ID of %D', [ID]));
+  SetDataWorkStatus(Format('Loading playlist with ID of %S', [ID]));
 
   Name := (JSON.Items[0].AsString);
 
@@ -2604,7 +2730,7 @@ begin
 
   for I := 0 to SONGS.Count-1 do
     begin
-      AID := SONGS.Items[I].AsInteger;
+      AID := SONGS.Items[I].AsString;
       // Validate
       if GetTrack(AID) <> -1 then
         TracksID.AddValue( AID );

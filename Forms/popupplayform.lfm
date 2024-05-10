@@ -38,7 +38,7 @@ object PopupPlay: TPopupPlay
       Left = 104
       Height = 30
       Top = 24
-      Width = 137
+      Width = 136
       Caption = 'Track Name'
       Font.Height = -24
       ParentColor = False
@@ -49,7 +49,7 @@ object PopupPlay: TPopupPlay
       Left = 104
       Height = 17
       Top = 56
-      Width = 74
+      Width = 71
       Caption = 'Artist name'
       ParentColor = False
       ShowAccelChar = False
@@ -125,7 +125,6 @@ object PopupPlay: TPopupPlay
     Top = 120
     Width = 400
     Align = alTop
-    OnClick = Visualisation_PlayerPaint
     OnPaint = Visualisation_PlayerPaint
   end
 end
