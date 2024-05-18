@@ -1,5 +1,5 @@
-![image](https://github.com/Codrax/iBroadcast-For-Linux/assets/68193064/b8c1e5f5-622d-4279-8a5c-11843b04ca26)![image](https://github.com/Codrax/iBroadcast-For-Linux/assets/68193064/c594bb14-5354-49a2-867f-e0a232daf80f)# iBroadcast-For-Linux
- An unofficial iBroadcast client for Debian Linux developed in Lazarus Delphi.
+# iBroadcast-For-Linux
+An unofficial iBroadcast client for Debian Linux developed in Lazarus Delphi.
 
 ### Also try [iBroadcast for Windows](https://github.com/Codrax/iBroadcast-For-Windows)!
 
